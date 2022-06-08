@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca</title>
+
+    <!-- Fontes externas -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Inter:wght@100;400;700&display=swap"
+            rel="stylesheet">
+    
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+
+<!-- Fontes internas -->
+    <link rel="stylesheet" href="keyboard.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img class="img-logo" src="img/logo-alura.png" alt="Logo da Alura com a letra A">
+        </header>
+        <main id="mainPage" class="principal">         
+            <div id="homePage" class="homePage">
+                <div class="btn-start">
+                    <button id="btnStart" class="btn btnBlue">Comece a jogar!</button>
+                </div>
+                <div class="btnAddWord">
+                    <button id="btnAddWord" class="btn btnGray">Adicionar nova palavra</button>
+                </div>
+            </div>
+
+            <div id="addPage" class="invisible addPage">
+                <div class="copy-text">
+                    <textarea class="input-text" id="textInput" cols="40" rows="6" placeholder="Digite sua palavra..."></textarea>
+                    <div class="aviso">
+                        <h6><img src="img/Vector.png" alt="Simbolo de exclamação">Digite apenas letras maiúsculas e máx. 8 letras.</h6>
+                    </div>
+                </div>
+                
+                <div class="btnCopy">
+                    <button id="btnSaveWord" class="btn btnBlue">Salvar e começar</button>
+                    <button id="btnCancelAdd" class="btn btnGray">Cancelar</button>
+                </div>
+            </div>
+
+            <div id="gamePage" class="invisible game">
+                <div id="forca">
+                </div>
+                
+                <div id="palavra-secreta">
+                </div>
+                
+                <div id="teclado">
+                    <div class="teclas">
+                        <button id="tecla-Q" onclick="checkLetterTyped('Q')">Q</button>
+                        <button id="tecla-W" onclick="checkLetterTyped('W')">W</button>
+                        <button id="tecla-E" onclick="checkLetterTyped('E')">E</button>
+                        <button id="tecla-R" onclick="checkLetterTyped('R')">R</button>
+                        <button id="tecla-T" onclick="checkLetterTyped('T')">T</button>
+                        <button id="tecla-Y" onclick="checkLetterTyped('Y')">Y</button>
+                        <button id="tecla-U" onclick="checkLetterTyped('U')">U</button>
+                        <button id="tecla-I" onclick="checkLetterTyped('I')">I</button>
+                        <button id="tecla-O" onclick="checkLetterTyped('O')">O</button>
+                        <button id="tecla-P" onclick="checkLetterTyped('P')">P</button>
+                    </div>
+                    <div class="teclas">
+                        <button id="tecla-A" onclick="checkLetterTyped('A')">A</button>
+                        <button id="tecla-S" onclick="checkLetterTyped('S')">S</button>
+                        <button id="tecla-D" onclick="checkLetterTyped('D')">D</button>
+                        <button id="tecla-F" onclick="checkLetterTyped('F')">F</button>
+                        <button id="tecla-G" onclick="checkLetterTyped('G')">G</button>
+                        <button id="tecla-H" onclick="checkLetterTyped('H')">H</button>
+                        <button id="tecla-J" onclick="checkLetterTyped('J')">J</button>
+                        <button id="tecla-K" onclick="checkLetterTyped('K')">K</button>
+                        <button id="tecla-L" onclick="checkLetterTyped('L')">L</button>
+                        <button id="tecla-Ç" onclick="checkLetterTyped('Ç')">Ç</button>
+                    </div>
+                    <div class="teclas">
+                        <button id="tecla-Z" onclick="checkLetterTyped('Z')">Z</button>
+                        <button id="tecla-X" onclick="checkLetterTyped('X')">X</button>
+                        <button id="tecla-C" onclick="checkLetterTyped('C')">C</button>
+                        <button id="tecla-V" onclick="checkLetterTyped('V')">V</button>
+                        <button id="tecla-B" onclick="checkLetterTyped('B')">B</button>
+                        <button id="tecla-N" onclick="checkLetterTyped('N')">N</button>
+                        <button id="tecla-M" onclick="checkLetterTyped('M')">M</button>
+                    </div>
+                </div>
+                <div class="buttonsGame">
+                    <button id="btnNewGame" class="btn btnBlue">Novo Jogo</button>
+                    <button id="btnCancelGame" class="btn btnGray">Cancelar</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="messageModal" class="modal-body">
+                    ...
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIM MODAL -->
+
+    <script src="script.js"></script>
+
+    <!-- Scripts Externos -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

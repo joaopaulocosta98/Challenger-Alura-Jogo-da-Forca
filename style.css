@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #E5E5E5;
+}
+
+.container{
+    width: 95vw;
+    height: 90vh;
+    margin: 40px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    height: 10vh;
+    width: 100%;
+
+}
+
+.img-logo{
+    width: 31px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.principal{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homePage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.btnBlue{
+    border: 1px solid #0A3871;
+    border-radius: 12px;
+    background-color: #0A3871;
+    color: #FFF;    
+}
+
+.btnBlue:hover{
+    background-color: #1e82fd;
+    color: black;
+    transform: scale(1.1);
+}
+
+.btnGray{
+    border: 1px solid #0A3871;
+    border-radius: 12px;
+    background-color: #E5E5E5;
+    color: #0A3871;
+}
+
+.btnGray:hover{
+    background-color: #E5E5E5;
+    color: black;
+    transform: scale(1.1);
+}
+
+.btn{
+    width: 250px;
+    height: 50px;
+    margin-left: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 1s;
+}
+.addPage{
+    width: 800PX;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;  
+}
+
+.input-text {
+    width: 650px;
+    height: 150px;
+    margin-top: 30px;
+    padding: 10px;
+    color: #0A3871;
+    font-size: 32px;
+    background-color: #E5E5E5;
+    border: none;
+    outline: none;
+}
+
+::-webkit-input-placeholder {
+    color: #0A3871;
+    font-size: 22px;
+}  
+
+.aviso img{
+    margin-right: 5px;
+    float: left;
+}
+
+.aviso h6 {
+    font-size: 12px;
+    color: #495057;
+}
+
+.btnCopy{
+    margin: 0 auto;
+}
+
+.btnCopy button{
+    margin: 0 50px 60px 50px;
+}
+
+.game{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#forca {
+    width: 194px;
+    height: 206px;
+    background-image: url(img/forca.png);
+    background-repeat: no-repeat;
+}
+
+#palavra-secreta {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.letras {
+    margin: 0 3px;
+    padding: 3px;
+    width: 16px;
+    text-align: center;
+    border-bottom: 3px solid black;
+    color: black;
+    font-weight: 500;
+}
+
+#forca p{
+    visibility: hidden;
+}
+
+.invisible {
+    display: none;
+}
